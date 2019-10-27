@@ -1,8 +1,11 @@
 import org.joda.time.DateTime;
+import org.joda.time.LocalDate;
+import org.joda.time.Period;
+import org.joda.time.Years;
 
 public class Person {
     private int id;
-    private String fio;
+    private String name;
     private DateTime dateOfBirth;
     private String sex;
 
@@ -15,11 +18,11 @@ public class Person {
     }
 
     public String getFio() {
-        return fio;
+        return name;
     }
 
-    public void setFio(String fio) {
-        this.fio = fio;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public DateTime getDateOfBirth() {
@@ -37,10 +40,14 @@ public class Person {
     public void setSex(String sex) {
         this.sex = sex;
     }
+
+    public int getAge() {
+        return new Period(dateOfBirth, DateTime.now()).getYears();
+    }
 }
 
 
-//    PersonListOur p = new PersonListOur();
+//    PersonList p = new PersonList();
 
 //    Person np = new Person("q", "737373", "sex");
 //    p.add(np);
