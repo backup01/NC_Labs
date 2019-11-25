@@ -1,14 +1,19 @@
-import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
 import org.joda.time.Period;
-import org.joda.time.Years;
+
+import java.util.ArrayList;
 
 public class Person {
+    //поле, хранящее идентификатор
     private int id;
+    //поле, хранящее имя
     private String name;
-    private DateTime dateOfBirth;
+    //поле, хранящее дату рождения
+    private LocalDate dateOfBirth;
+    //поле, хранящее пол
     private String sex;
 
+    //getters & setters для полей класса
     public int getId() {
         return id;
     }
@@ -17,7 +22,7 @@ public class Person {
         this.id = id;
     }
 
-    public String getFio() {
+    public String getName() {
         return name;
     }
 
@@ -25,11 +30,11 @@ public class Person {
         this.name = name;
     }
 
-    public DateTime getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(DateTime dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -41,15 +46,21 @@ public class Person {
         this.sex = sex;
     }
 
+    //Вычисление возраста
     public int getAge() {
-        return new Period(dateOfBirth, DateTime.now()).getYears();
+        return new Period(dateOfBirth, LocalDate.now()).getYears();
+    }
+
+    //Конструктор Person
+    public Person(int id, String name, LocalDate dateOfBirth, String sex){
+        this.id = id;
+        this.name = name;
+        this.dateOfBirth = dateOfBirth;
+        this.sex = sex;
+    }
+
+    //Перевод информации о Person в строку
+    public String toString() {
+        return String.format("1.ID: %s; \n 2.Name: %s; \n 3.Date of birth: %s; \n 4.Sex: %s", id, name, dateOfBirth.toString("dd.MM.yyyy"), sex.toString());
     }
 }
-
-
-//    PersonList p = new PersonList();
-
-//    Person np = new Person("q", "737373", "sex");
-//    p.add(np);
-//
-//        p.addPerson(new Person("p1", new DateTime(2000, 5, 12, 0,0), Person.Sex.Male));
