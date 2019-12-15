@@ -1,7 +1,6 @@
 import org.joda.time.LocalDate;
 import org.joda.time.Period;
 
-import java.util.ArrayList;
 
 public class Person {
     //поле, хранящее идентификатор
@@ -63,4 +62,6 @@ public class Person {
     public String toString() {
         return String.format("1.ID: %s; \n 2.Name: %s; \n 3.Date of birth: %s; \n 4.Sex: %s", id, name, dateOfBirth.toString("dd.MM.yyyy"), sex.toString());
     }
+
+
 }
