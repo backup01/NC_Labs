@@ -7,7 +7,7 @@ public class Repository {
     private Person[] persons = new Person[10];
     private int length = 0;
 
-    public IPersonSort sorter;
+    public IPersonSort sorter = new BubbleSort();
 
     //получаем длину списка
     public int getLength() {
